@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from threading import Thread
 import logging
-from scraper.scraper import scrape_public_register
+from scraper.scraper import scrape_public_url
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def scrape():
     page = request.args.get('page')
     if page:
         payload['page'] = page
-    thread = Thread(target=scrape_public_register, args=(payload))
+    thread = Thread(target=scrape_public_url, args=(payload))
     thread.daemon = True
     thread.start()
 

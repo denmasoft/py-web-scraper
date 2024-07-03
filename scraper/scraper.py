@@ -9,7 +9,7 @@ import logging
 import requests
 
 
-def scrape_public_register(payload):
+def scrape_public_url(payload):
     url = config.SCRAPER_URL
     response = requests.get(url)
     if response.status_code != 200:
@@ -25,6 +25,7 @@ def scrape_public_register(payload):
     }
     form_button = config.FORM_SUBMIT_BUTTON
     table_to_read = config.FORM_TABLE
+    pagination_html_elem = config.TABLE_PAGINATION
     page = 1
     try:
         driver.get(url)
@@ -44,7 +45,7 @@ def scrape_public_register(payload):
         )
         if page > 1:
             try:
-                pagination = driver.find_element(By.CLASS_NAME, 'rgWrap rgNumPart')
+                pagination = driver.find_element(By.CLASS_NAME, pagination_html_elem)
                 page = pagination.find_element(By.XPATH, f".//a[span[text()='{page}']]")
                 page.click()
                 time.sleep(5)
