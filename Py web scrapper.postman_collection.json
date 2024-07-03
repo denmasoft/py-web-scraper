@@ -1,0 +1,38 @@
+{
+	"info": {
+		"name": "Py web scrapper",
+		"description": "The scraper API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "scrape",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastName\": \"\",\n    \"firstName\": \"\",\n    \"city\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/scrape",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"scrape"
+					]
+				},
+				"description": "Start Scraping data."
+			},
+			"response": []
+		}
+	]
+}
